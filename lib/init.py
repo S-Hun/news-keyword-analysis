@@ -1,4 +1,0 @@
-import parsePostData
-
-def init():
-    
