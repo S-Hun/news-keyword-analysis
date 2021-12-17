@@ -1,9 +1,10 @@
-import reqUrl
+from lib import reqUrl
 import configparser
 import urllib.request
 import datetime
 import json
 import pandas as pd
+import os
 
 #[CODE 1]
 def getNaverSearch(node, srcText, start, display, config):
@@ -33,7 +34,7 @@ def getPostData(post, jsonResult, cnt):
 #[CODE 0]
 def saveData(data_path, config_path):
     config = configparser.ConfigParser()
-    config.read(config_path)
+    config.read(config_path, encoding='utf-8')
     node = config['API']['Node']
     srcText = config['API']['SearchWord']
     cnt = 0
@@ -49,11 +50,22 @@ def saveData(data_path, config_path):
     print('전체 검색 : %d 건' %total)
     print("가져온 데이터 : %d 건" %(cnt))
 
-    with open(data_path + '%s_naver_%s.json' % (srcText, node), 'w', encoding='utf8') as outfile:
+    with open(data_path + '/%s_naver_%s.json' % (srcText, node), 'w', encoding='utf8') as outfile:
         jsonFile = json.dumps(jsonResult, indent = 4, sort_keys = True, ensure_ascii = False)
         outfile.write(jsonFile)
-        print(data_path + '%s_naver_%s.json SAVED' % (srcText, node))
+        print(data_path + '/%s_naver_%s.json SAVED' % (srcText, node))
 
     csvDataFrame = pd.DataFrame(jsonResult)
-    csvDataFrame.to_csv(data_path + '/%s_naver_%s.csv'%(srcText, node))
+    csvDataFrame.to_csv(data_path + '/%s_naver_%s.csv'%(srcText, node), encoding="utf-8-sig")
+    print(csvDataFrame.head())
     print(data_path + '/%s_naver_%s.csv SAVED' % (srcText, node))
+
+#[CODE -1]
+def init(config_path = None, data_path = '.'):
+    if config_path == None:
+        config_path = '.\\config.ini'
+    print(os.getcwd())
+    if os.path.isfile(config_path) != True:
+        print("ERR: \"%s\" config file is missing." % (config_path))
+        return
+    saveData(data_path, config_path)
