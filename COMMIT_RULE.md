@@ -1,6 +1,6 @@
 # :page_with_curl:
 
-**[kor] [LINK]([Github commit 메세지 규칙 - Junhyunny’s Devlogs](https://junhyunny.github.io/information/github/git-commit-message-rule/))**
+**[kor] [LINK](https://junhyunny.github.io/information/github/git-commit-message-rule/)**
 
 # 1. Purpose
 
