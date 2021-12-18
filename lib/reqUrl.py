@@ -1,11 +1,10 @@
-import configparser
 import urllib.request
 import datetime
 
-def getRequestUrl(url, config):
+def getRequestUrl(url, id, secret):
     req = urllib.request.Request(url)
-    req.add_header("X-Naver-Client-Id", config['CLIENT']['ClientID'])
-    req.add_header("X-Naver-Client-Secret", config['CLIENT']['ClientSecret'])
+    req.add_header("X-Naver-Client-Id", id)
+    req.add_header("X-Naver-Client-Secret", secret)
 
     try:
         response = urllib.request.urlopen(req)
