@@ -1,4 +1,3 @@
-
 import pandas as pd
 from konlpy.tag import Okt
 import gensim
@@ -8,11 +7,10 @@ import pyLDAvis.gensim_models
 # import os
 # os.environ["PYTHONIOENCODING"] = "utf-8"
 
-if __name__ == '__main__':
 
-    # csv 파일 읽어들이는 부분
-    path = './data'  # use your path
-    all_files = glob.glob(path + "/*.csv")
+def createLDA(data_path='.'):
+    # csv 파일 읽어들이는 부분  # use your path
+    all_files = glob.glob(data_path + "/*.csv")
 
     li = []
 
@@ -55,3 +53,4 @@ if __name__ == '__main__':
     prepared_data = pyLDAvis.gensim_models.prepare(
         lda_model, corpus, dictionary)
     pyLDAvis.save_html(prepared_data, 'lda.html')
+    print("lda.html 생성완료")
