@@ -1,0 +1,5 @@
+pandas==1.3.4
+urllib.requset==3.8
+json==2.0.9
+re==2.2.1
+konlpy==0.5.2
