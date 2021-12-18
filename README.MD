@@ -13,13 +13,16 @@ Check this [LINK](https://developers.naver.com/docs/search/blog/).
 - node : project data is organized with naver news. you can organize data with another node. check [tip2](#config_tip2). after you change node, you must edit method getNaverSearch function in **parsePostData.py**.
 - search_texts : set this with keyword what you want to analyze.
 
+3. In root directory run below command.
+
+```
+python main.py
+```
+
 \* tip
 
 <a name="config_tip1">1</a> Click Client ID in https://developers.naver.com/apps/
+
 <a name="config_tip2">2</a> https://developers.naver.com/docs/serviceapi/search/blog/blog.md
-
-3. In root directory run below command.
-
-```python main.py```
 
 # Framework
