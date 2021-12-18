@@ -2,7 +2,7 @@ import re
 import json
 import pandas as pd
 from collections import Counter
-from konlpy.tag import _okt
+from konlpy.tag import Okt
 
 import os
 import configparser
